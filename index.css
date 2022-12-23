@@ -1,0 +1,1092 @@
+@font-face {
+    font-family: 'Caveat';
+    font-weight: 400;
+    src: url('./fonts/caveat/Caveat-Regular.ttf');
+}
+
+@font-face {
+    font-family: 'Caveat';
+    font-weight: 700;
+    src: url('./fonts/caveat/Caveat-Bold.ttf');
+}
+
+@font-face {
+    font-family: 'Quicksand';
+    font-weight: 500;
+    src: url('./fonts/quicksand/Quicksand_Book.otf');
+}
+
+@font-face {
+    font-family: 'Quicksand';
+    font-weight: 300;
+    src: url('./fonts/quicksand/Quicksand_Light.otf');
+}
+
+@font-face {
+    font-family: 'Quicksand';
+    font-weight: 700;
+    src: url('./fonts/quicksand/Quicksand_Bold.otf');
+}
+
+*, ::before, ::after
+{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/*variables*/
+:root
+{
+    --primaire: rgb(32, 32, 32);
+    --secondaire: rgba(112,208,56,1);
+    --tertiaire: rgba(255,255,255,1);
+    --grisclair: rgba(255,255,255,0.2);
+    --sombre: rgb(16, 16, 16);
+    --extranoir: rgba(0,0,0,1);
+}
+
+body
+{
+    background-color: var(--primaire);   
+}
+
+.navburglinks /*Liens du menu auxilliaire*/
+{
+    color: var(--tertiaire);
+    text-decoration: none;
+}
+
+.banner /*Bannière 'attention à la taille...'*/
+{
+    width: 100%;
+    height: 30px;
+    background-color: var(--secondaire);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: Quicksand, Arial, Helvetica, sans-serif;
+    font-weight: 700;
+    font-size: 17px;
+    color: var(--tertiaire);
+    text-shadow: 0px 0px 15px var(--sombre);    
+}
+
+.head /*header*/
+{
+    position: sticky;
+    top: 0px;
+    z-index: 1000;
+    min-width: 320px;
+}
+
+.head_container /*Conteneur du header*/
+{
+    display: flex;
+    flex-direction: column;   
+}
+
+.navburger /*Menu burger auxilliaire*/
+{
+    position: fixed;
+    top: 80px;
+    font-family: Quicksand, Arial, Helvetica, sans-serif;
+    font-weight: 700;
+    font-size: 13px;
+    background-color: var(--extranoir);
+    width: 100%;
+    height: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 15px;
+    padding-bottom: 35px;
+    z-index: 10;
+    display: none;
+}
+
+.menuburger_button  /*Boutons menu burger on/off*/
+{
+    width: 30px;
+    height: 30px;
+    margin-right: 10px;
+    display: none;
+}
+
+.menuburger_button:hover
+{
+    cursor: pointer;
+}
+
+.burger_close /*Bouton menuburger off*/
+{
+    background-color: var(--extranoir);
+    position: absolute;
+    top: -70px;
+    right: 0px;
+}
+
+nav { /*Menu de navigation*/
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 50px;
+    background-color: transparent;
+    backdrop-filter: blur(8px);
+}
+
+.navlinks /*Menu de navigation*/
+{
+    text-decoration: none;
+    color: var(--tertiaire);
+    font-family: Quicksand, Arial, Helvetica, sans-serif;
+    font-weight: 700;
+    font-size: 13px;
+    margin-left: 15px;
+    filter: drop-shadow(0 0 100px);
+    -webkit-filter: drop-shadow(inset 0 0 15px 500px #000000);
+}
+
+.navlicons /*Menu de navigation sous forme d'icône*/
+{
+    display: none;
+}
+
+.navlinks:nth-of-type(4) /*Pousse les liens nav à gauche*/
+{
+    margin-right: auto;
+}
+
+nav a img /*Panier*/
+{
+    width: 40px;
+    height: 40px;
+    margin-right: 10px;
+}
+
+.logo { /*div contenant le logo en shadow et centrage*/
+    height: 0;
+    display: flex;
+    justify-content: center;
+}
+
+.logo a img /*Dimensionnement du logo*/
+{
+    height: 70px;
+    position: relative;
+    bottom: 45px;
+}
+
+#h1title /*Titre de la page en hidden*/
+{
+    display: none;
+}
+
+.social_container /*Conteneur des icones réseaux sociaux*/
+{
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    background-color: var(--extranoir);
+    box-shadow: 0px 8px 5px var(--grisclair);
+}
+
+.social_container a img /*Icones réseaux sociaux*/ 
+{
+    height: 23px;
+    margin-right: 7px;
+    border: solid 1px var(--tertiaire);
+    border-radius: 2px;
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    -ms-border-radius: 2px;
+    -o-border-radius: 2px;
+}
+
+/*-----------------------------Fin Header----------------------------------------------*/
+
+.main /*Conteneur des propositions commerciales*/
+{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-width: 320px;    
+}
+
+.main_container /*Conteneur principal des sections*/
+{
+    margin-top: 50px;
+    color: var(--tertiaire);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-width: 320px;    	
+}
+
+.shop_banner /*Grande bannière d'accueil*/
+{
+    margin-top: 15px;
+    width: 100%;
+}
+
+.sales_container { /*Conteneur des infos de ventes + images défilantes*/
+    display: flex;
+    justify-content:space-evenly;
+    align-items: center;
+    flex-wrap: wrap;
+    min-width: 320px;
+}
+
+.section1 .describe_container { /*Conteneur infos de ventes section1*/
+    height: 440px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-left: 15px;
+}
+
+/*Conteneur infos de ventes section2 et section3*/
+.section2 .describe_container, .section3 .describe_container { 
+    height: 320px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-left: 15px;
+}
+
+.main_title /*Titre de la section*/ 
+{
+    font-family: Caveat, Arial, Helvetica, sans-serif;
+    font-size: 47px;
+    font-weight: 700;
+    margin-bottom: 20px;
+    color: var(--secondaire);
+}
+
+.main_drop_down_container /*Conteneur des 4 dropdwn boxes*/
+{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 5px;
+    margin-top: 10px;
+    position: relative;
+}
+
+/*--------------------Section 1 + éléments communs aux sections------------------------------------------*/
+.section1 .describe_container > h3:nth-of-type(1)  /*'Précommande'*/
+{
+    font-family: Caveat, Arial, Helvetica, sans-serif;
+    font-size: 34px;
+    font-weight: 700;
+}
+
+.section1 .describe_container > p:nth-of-type(1) /*'€ 26,00 Taxes incluses'*/
+{ 
+    font-family: Quicksand, Arial, Helvetica, sans-serif;
+    font-size: 13px;
+    font-weight: 500;
+}
+
+.section1 .describe_container > h3:nth-of-type(2) /*'Tailles'*/
+{ 
+    font-family: Caveat, Arial, Helvetica, sans-serif;
+    font-size: 34px;
+    font-weight: 700;
+}
+
+.section1 .describe_container > p:nth-of-type(2) /*'Sélectionnez une taille'*/
+{ 
+    font-family: Quicksand, Arial, Helvetica, sans-serif;
+    font-size: 13px;
+    font-weight: 500;
+    margin-bottom: 5px;
+}
+
+.aux_describe_container /*Container des boutons tailles*/
+{
+    display: grid;
+    grid-template-columns: 45px 45px 45px 45px;
+    grid-template-rows: 45px 45px;
+    gap: 13px;
+}
+
+.aux_describe_container input /*Boutons inputs*/ 
+{
+    display: none;
+    background-color: var(--tertiaire);
+}
+
+.aux_describe_container label /*Boutons labels*/
+{
+    font-family: Quicksand, Arial, Helvetica, sans-serif;
+    background-color: var(--tertiaire);
+    font-weight: 700;
+    color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+}
+
+.aux_describe_container label:hover
+{
+    cursor: pointer;
+}
+
+.describe_container > p:nth-of-type(3) /*'quantité'*/
+ {
+    font-family: Caveat, Arial, Helvetica, sans-serif;
+    font-size: 34px;
+    font-weight: 700;
+}
+
+.describe_container div /*'Sélection quantité'*/
+ {
+    height: 46px;
+    border: solid 1px var(--tertiaire);
+    font-family: Quicksand, Arial, Helvetica, sans-serif;
+    font-size: 22px;
+    font-weight: 700;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px 10px 5px 10px;
+    border-radius: 30px;
+    -webkit-border-radius: 30px;
+    -moz-border-radius: 30px;
+    -ms-border-radius: 30px;
+    -o-border-radius: 30px;
+}
+
+.one /*'1' du sélecteur de quantité*/
+{ 
+    font-size: 15px;
+}
+
+.moins:hover, .plus:hover /*'+ et -' du sélecteur de quantité*/
+{
+    cursor: pointer;
+}
+
+.describe_container button /*Bouton 'Acheter maintenant*/
+{
+    width:250px;
+    height: 46px;
+    font-family: Quicksand, Arial, Helvetica, sans-serif;
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--primaire);
+    border: solid 2px var(--secondaire);
+    background: radial-gradient(white, var(--grisclair));
+    margin-top: 8px;
+    border-radius: 20px;
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    -ms-border-radius: 20px;
+    -o-border-radius: 20px;
+}
+
+.describe_container button:hover
+{
+    cursor: pointer;
+    background: radial-gradient(var(--secondaire), var(--grisclair));   
+}
+/*----------------fin--Section 1------------------------------------------*/
+
+/*--------------------Section 2------------------------------------------*/
+.section2 .describe_container > h3:nth-of-type(1) /*'Précommande'*/
+{ 
+    font-family: Caveat, Arial, Helvetica, sans-serif;
+    font-size: 34px;
+    font-weight: 700;
+    margin-bottom: 12px; 
+}
+
+.section2 .describe_container > p:nth-of-type(1) /*Photo non contractuelle*/
+{
+    font-family: Quicksand, Arial, Helvetica, sans-serif;
+    font-size: 13px;
+    font-weight: 500;
+    margin-bottom: 10px;
+
+}
+
+.section2 .describe_container > p:nth-of-type(2) /*€ 60 Taxes incluses*/
+{
+    font-family: Quicksand, Arial, Helvetica, sans-serif;
+    font-size: 13px;
+    font-weight: 500;
+    margin-bottom: auto;
+}
+
+.section2 .describe_container > p:nth-of-type(3) { /*Quantité*/
+    font-family: Caveat, Arial, Helvetica, sans-serif;
+    font-size: 34px;
+    font-weight: 700; 
+}
+/*----------------fin--Section 2------------------------------------------*/
+
+
+/*--------------------Section 3------------------------------------------*/
+.section3 .describe_container > h3:nth-of-type(1) /*'ZEvent 2022'*/
+{ 
+    font-family: Caveat, Arial, Helvetica, sans-serif;
+    font-size: 34px;
+    font-weight: 700;
+    margin-bottom: 12px; 
+}
+
+.section3 .describe_container > p:nth-of-type(1) /*€175 Taxes incluses*/
+{
+    font-family: Quicksand, Arial, Helvetica, sans-serif;
+    font-size: 13px;
+    font-weight: 500;
+    margin-bottom: auto;
+}
+
+.section3 .describe_container > p:nth-of-type(2) { /*Quantité*/
+    font-family: Caveat, Arial, Helvetica, sans-serif;
+    font-size: 34px;
+    font-weight: 700; 
+}
+/*----------------fin--Section 3------------------------------------------*/
+
+.items { /*Description des contenus des dropdown boxes*/
+    display: none;
+    max-width: 600px;
+    color: var(--tertiaire);
+    font-family: Quicksand, Helvetica, sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.button:hover { 
+    cursor: pointer;
+}
+
+.button { /*Déclencheur des dropdown boxes (positon fermé)*/
+    display: flex;
+    align-items: flex-end;
+    max-width: 600px;
+    height: 30px;
+    border: solid 1px var(--tertiaire);
+    border-radius: 5px;
+    text-align: left;
+    background-color: black;
+    color: var(--tertiaire);
+    font-family: Quicksand, Arial, Helvetica, sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
+    padding-left: 20px;
+}
+
+img { /*Centrage vertical icone du déclencheur*/
+    align-self: center;    
+}
+
+.button.active /*Déclencheur avec la classe active (position ouvert)*/
+ {
+    border-bottom: 0;
+    border-radius: 5px 5px 0 0;
+    -webkit-border-radius: 5px 5px 0 0;
+    -moz-border-radius: 5px 5px 0 0;
+    -ms-border-radius: 5px 5px 0 0;
+    -o-border-radius: 5px 5px 0 0;
+}    
+
+.items.active /*Contenu avec la classe active (position ouvert)*/
+ { 
+    display: block;
+    border: solid 1px var(--tertiaire);
+    border-top: 0;
+    border-radius: 0 0 5px 5px;
+    -webkit-border-radius: 0 0 5px 5px;
+    -moz-border-radius: 0 0 5px 5px;
+    -ms-border-radius: 0 0 5px 5px;
+    -o-border-radius: 0 0 5px 5px;   
+}
+
+.misc /*Lien afficher les détails*/ 
+{ 
+    color: var(--secondaire);
+    font-family: Quicksand, Arial, Helvetica, sans-serif;
+    font-size: 14px;
+    text-decoration: underline;
+    align-self: flex-start;
+    position: absolute;
+    bottom: -22px;
+
+}
+
+.misc:hover
+{
+    cursor: pointer;
+}
+
+.linktex /*Textes des liens du descriptifs des dropdown boxes*/
+{ 
+    color: var(--secondaire);
+    text-decoration: underline;
+}
+
+.linktex:hover {
+    cursor: pointer;
+}
+
+.arrows { /*Flêche du lien afficher les détails*/
+    position: absolute;
+    bottom: -22px;
+    left: 130px;
+    
+}
+
+
+/*-------------------------Section des ONG---------------------------*/
+.ong_container /*conteneur des cartes ONG*/
+{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.sshpict /*Dimensionnement photo sea-sheperd*/
+{
+    width: 100px;
+    height: 100px;
+}
+
+.lpopict /*Dimensionnement photo lpo*/
+{
+    width: 100px;
+    height: 120px;
+}
+
+.wwfpict /*Dimensionnement photo wwf*/
+{
+    width: 100px;
+    height: 100px;
+}
+.sclpict /*Dimensionnement photo sea-cleaner*/
+{
+    width: 140px;
+    height: 140px;
+}
+
+.knplus /*Lien en savoir plus*/ 
+{ 
+    color: var(--secondaire);
+    font-family: Quicksand, Arial, Helvetica, sans-serif;
+    font-size: 14px;
+    text-decoration: underline;
+    position: absolute;
+    bottom: 15px;
+}
+
+.knplus:hover
+{
+    cursor: pointer;
+}
+
+.arr2 { /*Flêche du lien en savoir plus*/
+    height: 12px;
+    position: absolute;
+    bottom: 15px;
+    right: 85px;
+    
+}
+
+.ong_title /*Intitulés des ONG*/
+{
+    font-family: Caveat, Arial, Helvetica, sans-serif;
+    font-size: 34px;
+    font-weight: 700;
+    color: var(--secondaire)    
+}
+
+.ong_text /*Descriptions des ONG*/
+{
+    color: var(--tertiaire);
+    font-family: Quicksand, Arial, Helvetica, sans-serif;
+    font-size: 14px;    
+}
+
+.ong_sub_container /*Conteneur cartes ONG*/
+{
+    
+    margin-top: 80px;
+    margin-right: 8px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 310px;
+    height: 380px;
+    background-color: var(--extranoir);
+    padding-left: 10px;
+    border-radius: 20px;
+    position: relative;
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    -ms-border-radius: 20px;
+    -o-border-radius: 20px;
+}
+
+.osc_onglast { /*marge carte de droite otée*/
+    margin-right: 0;
+}
+
+/*-------------------------Section aide--Z22-----------------------------*/
+.help_container { /*Conteneur de la section*/
+    display: flex;
+    flex-wrap: wrap-reverse;
+    justify-content: center;
+    margin-top: 20px;
+    margin-bottom: 40px;    
+}
+
+.text_aid_container /*Conteneur du texte*/
+{
+    color: var(--tertiaire);
+    background-color: var(--secondaire);
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 635px;
+    height: 310px;
+    border-radius: 20px 0px 0px 20px;
+    -webkit-border-radius: 20px 0px 0px 20px;
+    -moz-border-radius: 20px 0px 0px 20px;
+    -ms-border-radius: 20px 0px 0px 20px;
+    -o-border-radius: 20px 0px 0px 20px;
+}
+    
+.help_container div > img:nth-of-type(1) /*image calibre*/
+{
+    width: 635px;
+    height: 310px;
+    border-radius: 0px 20px 20px 0px;
+    -webkit-border-radius: 0px 20px 20px 0px;
+    -moz-border-radius: 0px 20px 20px 0px;
+    -ms-border-radius: 0px 20px 20px 0px;
+    -o-border-radius: 0px 20px 20px 0px;
+}
+
+.help_container div > img:nth-of-type(2) /*image calibre2*/
+{
+    display: none;
+}
+
+.text_aid_container > h2:nth-of-type(1) /*Texte 'Besoin d'aide ?'*/
+{
+    font-family: Caveat, Arial, Helvetica, sans-serif;
+    font-size: 54px;
+    font-weight: 700;
+    text-shadow: 1px -1px 5px rgb(32, 32, 32);
+}
+
+/*Textes 'Consultez...!'  et  'Pour toute autre...:)'*/
+.text_aid_container > p:nth-of-type(1), .text_aid_container > p:nth-of-type(2)
+{
+    font-family: Quicksand, Arial, Helvetica, sans-serif;
+    font-size: 16px;
+    text-shadow: 0px 0px 8px rgb(32, 32, 32);
+    align-self: flex-start;
+    margin-left: 25px;
+}
+
+.text_aid_container button /*Bouton 'Consultez la FAQ'*/
+{
+    align-self: flex-start;
+    margin-left: 25px;
+    width: 210px;
+    height: 45px;
+    font-family: Quicksand, Arial, Helvetica, sans-serif;
+    font-size: 18px;
+    font-weight: 700;
+    border-radius: 25px;
+    background-color: var(--tertiaire);
+    -webkit-border-radius: 25px;
+    -moz-border-radius: 25px;
+    -ms-border-radius: 25px;
+    -o-border-radius: 25px;
+}
+
+.text_aid_container button:hover
+{
+    background-color: var(--extranoir);
+    color: var(--secondaire);
+    cursor: pointer;
+}
+
+/*----------------------Diaporama produits---------------------------*/
+.roll_picture { /*Conteneur des images*/
+    width: 320px;
+    height: 320px;
+    overflow: hidden;
+    display: flex;
+    border-radius: 20px;
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    -ms-border-radius: 20px;
+    -o-border-radius: 20px;
+}
+
+.slide {
+    animation: slideCarousel 8s ease-in-out infinite;
+    -webkit-animation: slideCarousel 8s ease-in-out infinite;
+}
+
+@keyframes slideCarousel 
+{
+    0%
+    {
+        transform: translateX(0px);
+        -webkit-transform: translateX(0px);
+        -moz-transform: translateX(0px);
+        -ms-transform: translateX(0px);
+        -o-transform: translateX(0px);
+    }   
+
+    50%
+    {
+        transform: translateX(-350px);
+        -webkit-transform: translateX(-350px);
+        -moz-transform: translateX(-350px);
+        -ms-transform: translateX(-350px);
+        -o-transform: translateX(-350px);
+    }
+
+    100%
+    {
+        transform: translateX(-710px);
+        -webkit-transform: translateX(-710px);
+        -moz-transform: translateX(-710px);
+        -ms-transform: translateX(-710px);
+        -o-transform: translateX(-710px);
+    }
+}
+
+/*--------------------------footer------------------------*/
+footer 
+{
+    min-width: 320px;
+}
+
+.three_cards_foot_container /*Conteneur général des 3 cartes du footer*/
+{
+    width: 100%;
+    background-color: var(--extranoir);
+    color: var(--tertiaire);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    color: var(--tertiaire);
+    font-family: Quicksand, Arial, Helvetica, sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.first_card_container /*Conteneur 1er carte*/
+{
+    height: 280px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.first_card_container h2 /*'Shop'*/
+{
+    font-family: Caveat, Arial, Helvetica, sans-serif;
+    font-size: 34px;
+    font-weight: 700;
+    color: var(--secondaire);
+    margin-bottom: 50px;   
+}
+
+.first_card_container > p:nth-of-type(2) /*'Conditions...ventes'*/
+{
+    margin-top: 10px;    
+}
+
+.first_card_container > p:nth-of-type(3) /*Politique de conf...*/
+{
+    margin-top: 10px;
+}
+
+.first_card_container p a /*Liens légaux shop*/
+{
+    text-decoration: none;
+    color: var(--tertiaire);
+}
+
+.second_card_container /*Conteneur 2eme carte*/
+{
+    height: 280px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.second_card_container p img /*image du coeur*/
+{
+    height: 18px;
+    position: relative;
+    top: 5px; 
+}
+
+.second_card_container > p:nth-of-type(1) /*'The SeaCleaner...WWF'*/
+{
+    margin-top: 60px;
+    margin-left: 30px;
+}
+
+.second_card_container > p:nth-of-type(2) /*'Votre générosité...contribuer'*/
+{
+    margin-top: -60px;
+    margin-left: 30px;
+}
+
+.second_card_container > p:nth-of-type(3) /*'aux actions...vous'*/
+{
+    margin-top: -60px;
+    margin-left: 30px;
+}
+
+.social_subcontainer /*Conteneur icones réseaux sociaux*/
+{
+    align-self: center;
+    margin-bottom: 10px;
+}
+
+.social_subcontainer a 
+{
+    text-decoration: none;
+}
+
+.third_card_container /*Conteneur du logo ZEvent*/
+{
+    height: 280px;
+    display: flex;
+    align-items: center;
+}
+
+.third_card_container img /*Image du logo ZEvent*/
+{
+    height: 120px;
+}
+
+.credit_copy_container /*Conteneur des icones cartes de crédit et copyright*/
+{
+    width: 100%;
+    font-family: Quicksand, Arial, Helvetica, sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+    background-color: var(--extranoir);
+    color: var(--tertiaire);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    padding-top: 30px;
+}
+
+.credpict { /*Images des cartes de crédit*/
+    margin-bottom: 50px;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
+}
+
+.credit_copy_container p /*Copyright*/
+{
+    margin-bottom: 40px;
+}
+
+.tchat_link /*Rond vert du chat*/
+{
+    width: 70px;
+    height: 70px;
+    background-color: var(--secondaire);
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    bottom: 40px;
+    right: 40px;
+    border-radius: 36px;
+    -webkit-border-radius: 36px;
+    -moz-border-radius: 36px;
+    -ms-border-radius: 36px;
+    -o-border-radius: 36px;
+}
+
+.tchat_link img /*Icone du chat*/
+{
+    filter: invert(100%);
+    -webkit-filter: invert(100%);
+}
+
+.tchat_link:hover, .tchat_link img:hover {
+    cursor: pointer;
+} 
+
+.separator
+{
+    height: 1px;
+    background-color: var(--grisclair);
+}
+
+/*======================RESPONSIVE MEDIA QUERY===============================*/
+
+/*1ere rupture à 1286px*/
+@media only screen and (max-width: 1286px) {
+    .text_aid_container /*inversion des raduis border sur la section aide*/
+    {
+        border-radius: 0px 0px 20px 20px;
+        -webkit-border-radius: 0px 0px 20px 20px;
+        -moz-border-radius: 0px 0px 20px 20px;
+        -ms-border-radius: 0px 0px 20px 20px;
+        -o-border-radius: 0px 0px 20px 20px;
+    }
+
+    .help_container div > img:nth-of-type(1) /*Inversion des borders raduis sur le logoZ22*/
+    {
+        border-radius: 20px 20px 0px 0px;
+        -webkit-border-radius: 20px 20px 0px 0px;
+        -moz-border-radius: 20px 20px 0px 0px;
+        -ms-border-radius: 20px 20px 0px 0px;
+        -o-border-radius: 20px 20px 0px 0px;
+    }    
+}
+
+/*2ere rupture à 960px*/
+@media only screen and (max-width: 960px)
+{
+    .banner /*Bannière 'attention à la taille...'*/
+    {
+        height: 62px;
+    }
+
+    .navlinks /*Faire disparaitre menu nav mots*/
+    {
+        display: none;   
+    }
+    
+    .navlicons /*Appartition menu de navigation icônes*/
+    {   
+        display: block;
+        text-decoration: none;
+        margin-left: 15px;
+    }
+
+    .navlicons:nth-of-type(8) /*Pousse les liens nav à gauche*/
+    {
+        margin-right: auto;
+    }
+
+    .navlicons:nth-of-type(7) img
+    {
+        border-radius: 4px;
+        -webkit-border-radius: 4px;
+        -moz-border-radius: 4px;
+        -ms-border-radius: 4px;
+        -o-border-radius: 4px;
+    }
+
+    .navlicons:nth-of-type(6) img, .navlicons:nth-of-type(5) img
+    {
+        filter: invert();
+        -webkit-filter: invert();
+    }    
+}
+
+/*3eme rupture à 640px*/
+@media only screen and (max-width: 640px)
+{
+    /*-------------------------Section aide--Z22-------------*/
+    /*--Transformation section aide en configuration mobile*/
+    .text_aid_container /*Conteneur du texte*/
+    {
+        width: 314px;    
+    }
+    
+    .help_container div > img:nth-of-type(1) /*image calibre1*/
+    {
+        display: none;   
+    }
+
+    .help_container div > img:nth-of-type(2) /*image calibre2*/
+    {
+        display: block;
+        width: 314px;   
+    }
+    
+
+    /*Réalignement du menu*/
+    .logo { /*div contenant le logo en shadow et centrage*/
+        height: 0;
+        align-self: flex-start;
+        margin-left: 10px
+    }
+
+    .navlicons:nth-of-type(5) img
+    {
+        margin-left: 130px;
+    }
+
+    .main_title
+    {
+        font-size: 34px;
+    }
+
+}
+
+/*4eme rupture : configuration mobile à 440px*/
+@media only screen and (max-width: 440px)
+{
+    nav
+    {
+        justify-content: flex-end;
+    }
+
+    .navlicons
+    { /*Menu icones off*/
+        display: none;
+    }
+
+    .burger_on
+    {
+        display: block;
+    }
+    
+    .main_title
+    {
+        font-size: 24px;
+    }
+
+    .tchat_link /*Rond vert du chat*/
+    {    
+        bottom: 40px;
+        right: 15px;
+    }
+}
+
+
+
